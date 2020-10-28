@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Honeyman Designs</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <div class="grid-container">
+        <header class= "header">
+          <div class= "brand">
+          <button onclick="openMenu()">
+            &#9776;
+          </button>
+            <a href="products.html">
+                <img src="logo.png" alt="company logo">
+              </a>
+           </div>
+          <div class="header-links">
+            <a href="cart.html">Cart</a>
+            <a href="signin.html">Sign In</a>
+          </div>
+        </header>
+
+        <aside class="sidebar">
+          <h3>Shopping categories</h3>
+          <button class="sidebar-close" onclick="closeMenu()">x</button>
+          <ul>
+            <li>
+              <a href="products.html">Lighting</a>
+            </li>
+            <li>
+              <a href="products.html">Mirrors</a>
+            </li>
+            <li>
+              <a href="products.html">Rugs</a>
+            </li>
+            <li>
+              <a href="products.html">Coffee table</a>
+            </li>
+          </ul>
+        </aside>
+
+
+      <main class="main">
+        <div class = "content">
+        <ul class = "products">
+          {
+            data.products.map(product =>
+            <li>
+              <div class="product">
+                <img class="product-image" src={product.image} alt="Monkey light">
+                <div class="product-heading">
+                  <a href="product.html">{product.name}</a>
+                  </div>
+                 <div class="product-brand">{product.brand}</div>
+                 <div class="product-price">{product.price}</div>
+                 <div class="product-rating">{product.rating} stars ({product.numReviews})</div>
+                </div>
+            </li>
+            )
+          }
+
+        </ul>
+      </div>
+    </main>
+    <footer class= "footer">
+      <p>All rights reserved</p>
+    </footer>
+  </div>
+  <script>
+  function openMenu() {
+       document.querySelector(".sidebar").classList.add("open");
+     }
+  function closeMenu(){
+    document.querySelector(".sidebar").classList.remove("open");
+  }
+  </script>
+</body>
+</html>
